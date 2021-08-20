@@ -7,8 +7,8 @@
 
 
 
-function getInputValue(){
-    const depositInput = document.getElementById('deposit-input');
+function getInputValue(inputId){
+    const depositInput = document.getElementById(inputId);
     const depositAmountText = depositInput.value;
     const depositAmount = parseFloat(depositAmountText);
     //clear input field
@@ -22,13 +22,14 @@ document.getElementById('deposit-button').addEventListener('click', function(){
     // const depositInput = document.getElementById('deposit-input');
     // const depositAmountText = depositInput.value;
     // const depositAmount = parseFloat(depositAmountText);
-    const depositAmount = getInputValue();
+    const depositAmount = getInputValue('deposit-input');
 
     //get current deposit
     const depositTotal = document.getElementById('deposit-total');
     const depositTotalText = depositTotal.innerText;
     const previousDepositTotal = parseFloat(depositTotalText);
     depositTotal.innerText = previousDepositTotal + depositAmount;
+    
 
     //udate balance
     const balanceTotal = document.getElementById('balance-total');
@@ -43,9 +44,10 @@ document.getElementById('deposit-button').addEventListener('click', function(){
 
 //handle withdraw button
 document.getElementById('withdraw-button').addEventListener('click', function(){
-    const withdrawInput = document.getElementById('withdraw-input');
-    const withdrawAmountText = withdrawInput.value;
-    const withdrawAmount = parseFloat(withdrawAmountText);
+    // const withdrawInput = document.getElementById('withdraw-input');
+    // const withdrawAmountText = withdrawInput.value;
+    // const withdrawAmount = parseFloat(withdrawAmountText);
+    const withdrawAmount = getInputValue('withdraw-input');
 
     //update withdraw total
     const withdrawTotal = document.getElementById('withdraw-total');
@@ -60,7 +62,6 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
 
     balanceTotal.innerText = previousBalanceTotal - withdrawAmount;
 
-    //clear input field
-    withdrawInput.value = '';
+    
 
 })
